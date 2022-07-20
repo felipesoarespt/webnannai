@@ -1,0 +1,26 @@
+
+// import fs from 'fs';
+// import path from 'path';
+// import handlebars from 'handlebars';
+import { sendEmail } from '@config/email';
+
+const handler = async (req, res) => {
+    const { name, email, phone } = req.body;
+    // const contact = fs.readFileSync(path.join('src/templates/contact.html'), 'utf8');
+    // const template = handlebars.compile(contact, { strict: true })
+    // const result = template({name, email, phone})
+    const object = {
+        subject: 'Cadastro Nannai Residence',
+        to: `Contato <${process.env.USER_EMAIL}>`,
+        from: `Nannai Residence | Site <${process.env.ADMIN_EMAIL}>`,
+        html: `<div> Novo Usuário cadastrado <div> Nome: <strong>${name}</strong> </div>  <div> Email: <strong>${email}</strong>  </div> <div> Telefone: <strong>${phone}</strong> </div> </div>`,
+    }
+    sendEmail(object).then((sucess) => {
+        res.status(200).json({ message: 'send email sucess' })
+    }).catch(error => {
+        console.log(error)
+        res.status(400).json(error)
+    })
+}
+
+export default handler
