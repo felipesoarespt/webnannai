@@ -73,7 +73,7 @@ const Accommodations: React.FC = () => {
           <Item
             image={image1}
             capacity={8}
-            title="Flat 2 quartos"
+            title="Flat 2 quartos (Suíte)"
             description="Nossa suite master dispõe de internet, TV a cabo, Netflix, uma cama de casal super confortável, uma bicama e ar-condicionado."
             info={[
               { text: 'Televisão 40 polegadas', icon: television },
@@ -84,7 +84,7 @@ const Accommodations: React.FC = () => {
           <Item
             image={image2}
             capacity={8}
-            title="Flat 2 quartos"
+            title="Flat 2 quartos (Segundo Quarto)"
             description="O segundo quarto possui ar condicionado, uma cama de casal, uma bicama, um beliche, acomodando até 4 pessoas."
             info={[
               { text: 'Cama de casal', icon: bed },
