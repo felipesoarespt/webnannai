@@ -36,6 +36,7 @@ const SingUp: React.FC = () => {
         pauseOnHover: true,
       });
       reset({ name: '', phone: '', email: '' })
+      window.open(process.env.NEXT_PUBLIC_BASE_URL_RESERVE, '_blank', 'noopener,noreferrer');
     } catch (error) {
       console.log(error)
       toast.error('Erro ao realizar cadastro!', {

@@ -19,7 +19,7 @@ const NavBar: React.FC = () => {
             </div>
           </Logo>
           <Box>
-            <strong>2022. Todos os direito reservados</strong>
+            <strong>2022. Todos os direitos reservados</strong>
             <p>(81) 98275-0722</p>
           </Box>
         </Content>

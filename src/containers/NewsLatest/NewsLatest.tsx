@@ -34,6 +34,7 @@ const NewsLatest: React.FC = () => {
         closeOnClick: true,
         pauseOnHover: true,
       });
+      window.open(process.env.NEXT_PUBLIC_BASE_URL_RESERVE, '_blank', 'noopener,noreferrer');
     } catch (error) {
             toast.error('Erro ao realizar cadastro!', {
         position: "top-right",
