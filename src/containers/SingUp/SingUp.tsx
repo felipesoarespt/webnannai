@@ -25,6 +25,13 @@ const SingUp: React.FC = () => {
     resolver: scheme,
   });
 
+  const getOpen = (url) => {
+    const a = document.createElement('a');
+    a.href = url;
+    a.setAttribute('target', '_blank');
+    a.click();
+  }
+
   const onSubmit = async (data): Promise<void> => {
     try {
       await send(data);
@@ -36,7 +43,7 @@ const SingUp: React.FC = () => {
         pauseOnHover: true,
       });
       reset({ name: '', phone: '', email: '' })
-      window.open(process.env.NEXT_PUBLIC_BASE_URL_RESERVE, '_blank', 'noopener,noreferrer');
+      getOpen(process.env.NEXT_PUBLIC_BASE_URL_RESERVE);
     } catch (error) {
       console.log(error)
       toast.error('Erro ao realizar cadastro!', {

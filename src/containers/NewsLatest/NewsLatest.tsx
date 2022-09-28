@@ -23,6 +23,13 @@ const NewsLatest: React.FC = () => {
     resolver: scheme,
   });
 
+  const getOpen = (url) => {
+    const a = document.createElement('a');
+    a.href = url;
+    a.setAttribute('target', '_blank');
+    a.click();
+  }
+
   const onSubmit = async (data): Promise<void> => {
     try {
       await newsLatest(data);
@@ -34,7 +41,7 @@ const NewsLatest: React.FC = () => {
         closeOnClick: true,
         pauseOnHover: true,
       });
-      window.open(process.env.NEXT_PUBLIC_BASE_URL_RESERVE, '_blank', 'noopener,noreferrer');
+      getOpen(process.env.NEXT_PUBLIC_BASE_URL_RESERVE);
     } catch (error) {
             toast.error('Erro ao realizar cadastro!', {
         position: "top-right",
@@ -52,7 +59,7 @@ const NewsLatest: React.FC = () => {
           src={image}
           height={30}
         />
-        <Text>Fique por dentro das nossa promoções e disponibilidade</Text>
+        <Text>Fique por dentro das nossas promoções e disponibilidade</Text>
       </Box>
       <Form>
         <Input label='Nome' {...register("name")} />
