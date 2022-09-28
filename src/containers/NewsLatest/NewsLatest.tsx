@@ -23,14 +23,8 @@ const NewsLatest: React.FC = () => {
     resolver: scheme,
   });
 
-  const getOpen = (url) => {
-    const a = document.createElement('a');
-    a.href = url;
-    a.setAttribute('target', '_blank');
-    a.click();
-  }
-
   const onSubmit = async (data): Promise<void> => {
+    const windowReference = window.open();
     try {
       await newsLatest(data);
       reset({ name: '', email: '' })
@@ -41,9 +35,9 @@ const NewsLatest: React.FC = () => {
         closeOnClick: true,
         pauseOnHover: true,
       });
-      getOpen(process.env.NEXT_PUBLIC_BASE_URL_RESERVE);
+      windowReference.location = process.env.NEXT_PUBLIC_BASE_URL_RESERVE;
     } catch (error) {
-            toast.error('Erro ao realizar cadastro!', {
+      toast.error('Erro ao realizar cadastro!', {
         position: "top-right",
         autoClose: 5000,
         draggable: true,
